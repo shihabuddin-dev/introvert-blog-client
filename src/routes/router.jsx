@@ -5,6 +5,8 @@ import SignIn from "../pages/auth/SignIn";
 import SignUp from "../pages/auth/SignUp";
 import Blogs from "../pages/blogs/Blogs";
 import Publish from "../pages/publish/Publish";
+import BlogDetails from "../pages/blogs/BlogDetails";
+import Spinner from "../components/ui/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +16,15 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "/signin", Component: SignIn },
       { path: "/signup", Component: SignUp },
-      { path: '/blogs', Component: Blogs },
-      {path: '/publish', Component: Publish}
+      { path: "/blogs", Component: Blogs },
+      {
+        path: "/blog/:id",
+        hydrateFallbackElement: <Spinner />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/blog/${params.id}`),
+        Component: BlogDetails,
+      },
+      { path: "/publish", Component: Publish },
 
       // private routes
       // {

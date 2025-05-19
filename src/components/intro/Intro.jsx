@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFeatherAlt, FaQuoteLeft } from "react-icons/fa";
+import { FaArrowCircleRight, FaFeatherAlt, FaQuoteLeft } from "react-icons/fa";
 import { Link } from "react-router";
 import Button from "../ui/Button";
 
@@ -11,7 +11,7 @@ const Intro = () => {
         <section className="text-center py-8">
           <div className="flex justify-center items-center gap-3 mb-4">
             <h1 className="text-4xl font-bold text-gray-800">Introvert Blog</h1>
-            <FaFeatherAlt className="text-indigo-500 text-3xl" />
+            <FaFeatherAlt className="text-teal-500 text-3xl" />
           </div>
           <p className="text-gray-600 max-w-xl mx-auto text-lg">
             A calm space for deep thoughts, silent strength, and personal
@@ -19,13 +19,16 @@ const Intro = () => {
           </p>
         </section>
         <Link to="/blogs" className="flex justify-center">
-          <Button>Explore Blogs →</Button>
+          <Button>
+            Explore Blogs
+            <FaArrowCircleRight className="ml-2 transition-all duration-300 ease-in-out hover:skew-2" />
+          </Button>
         </Link>
 
         {/* Blog Posts */}
         <section className="mt-10">
           <div className="flex items-center gap-2 mb-6">
-            <FaQuoteLeft className="text-indigo-600 text-2xl" />
+            <FaQuoteLeft className="text-teal-600 text-2xl" />
             <h2 className="text-2xl font-semibold text-gray-700">
               Latest Reflections
             </h2>
@@ -43,7 +46,7 @@ const Intro = () => {
               </p>
               <Link
                 to="/blogs"
-                className="mt-4 text-sm text-indigo-500 font-medium"
+                className="mt-4 text-sm text-teal-500 font-medium"
               >
                 Read More →
               </Link>
@@ -60,7 +63,7 @@ const Intro = () => {
               </p>
               <Link
                 to="/blogs"
-                className="mt-4 text-sm text-indigo-500 font-medium"
+                className="mt-4 text-sm text-teal-500 font-medium"
               >
                 Read More →
               </Link>
@@ -77,7 +80,7 @@ const Intro = () => {
               </p>
               <Link
                 to="/blogs"
-                className="mt-4 text-sm text-indigo-500 font-medium"
+                className="mt-4 text-sm text-teal-500 font-medium"
               >
                 Read More →
               </Link>

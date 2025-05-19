@@ -1,6 +1,13 @@
 // components/Navbar.jsx
 import React, { useState } from "react";
-import { FaBars, FaTimes, FaFeatherAlt } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaFeatherAlt,
+  FaHome,
+  FaMicroblog,
+} from "react-icons/fa";
+import { MdOutlinePublishedWithChanges } from "react-icons/md";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
@@ -9,17 +16,28 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/" className="text-blue-600 font-semibold">
-          Home
+        <NavLink
+          to="/"
+          className=" font-semibold flex justify-center items-center gap-1"
+        >
+          <FaHome /> Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/blogs" className="text-blue-600 font-semibold">
+        <NavLink
+          to="/blogs"
+          className="font-semibold flex justify-center items-center gap-1"
+        >
+          <FaMicroblog />
           Blogs
         </NavLink>
       </li>
       <li>
-        <NavLink to="/publish" className="text-blue-600 font-semibold">
+        <NavLink
+          to="/publish"
+          className="font-semibold flex justify-center items-center gap-1"
+        >
+          <MdOutlinePublishedWithChanges />
           Publish
         </NavLink>
       </li>
@@ -31,8 +49,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 text-2xl font-bold text-blue-600">
-            <FaFeatherAlt className="text-indigo-500 text-2xl" />
+          <div className="flex items-center space-x-2 text-2xl font-bold text-teal-600">
+            <FaFeatherAlt className="text-teal-500 text-2xl" />
             <span>Introvert Blog</span>
           </div>
 

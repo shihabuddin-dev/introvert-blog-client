@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 a.active {
-  color: blue;
-  border-bottom: 2px solid blue;
+  color: teal;
 }
 
 a.pending {
