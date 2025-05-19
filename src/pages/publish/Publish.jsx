@@ -3,15 +3,23 @@ import { FaPenNib } from "react-icons/fa";
 import Button from "../../components/ui/Button";
 
 const Publish = () => {
- 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form=e.target
-    const formData= new FormData(form)
-    const newBlog= Object.fromEntries(formData.entries())
-    
-
-  }
+    const form = e.target;
+    const formData = new FormData(form);
+    const newBlog = Object.fromEntries(formData.entries());
+    fetch("http://localhost:3000/blogs", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newBlog),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("after add", data);
+      });
+  };
 
   return (
     <>
@@ -42,10 +50,10 @@ const Publish = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700">
-                Image
+              Image
             </label>
             <input
-              type="text"
+              type="url"
               name="image"
               placeholder="Enter Image URL"
               className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -57,7 +65,7 @@ const Publish = () => {
               Content
             </label>
             <textarea
-              name="textArea"
+              name="description"
               required
               rows={8}
               placeholder="Write your story..."
