@@ -8,15 +8,21 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const links = (
     <>
-      <NavLink to="/" className="text-blue-600 font-semibold">
-        Home
-      </NavLink>
-      <NavLink to="/blogs" className="text-blue-600 font-semibold">
-        Blogs
-      </NavLink>
-      <NavLink to="/contact" className="text-blue-600 font-semibold">
-        Publish
-      </NavLink>
+      <li>
+        <NavLink to="/" className="text-blue-600 font-semibold">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/blogs" className="text-blue-600 font-semibold">
+          Blogs
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/publish" className="text-blue-600 font-semibold">
+          Publish
+        </NavLink>
+      </li>
     </>
   );
 
@@ -31,9 +37,9 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
             {links}
-          </div>
+          </ul>
 
           {/* Mobile Toggle */}
           <div className="md:hidden">
@@ -46,9 +52,9 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden flex flex-col bg-white px-4 pt-2 pb-4 space-y-2 shadow-md">
+        <ul className="md:hidden flex flex-col bg-white px-4 pt-2 pb-4 space-y-2 shadow-md">
           {links}
-        </div>
+        </ul>
       )}
     </nav>
   );

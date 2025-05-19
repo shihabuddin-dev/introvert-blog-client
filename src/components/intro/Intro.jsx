@@ -6,7 +6,7 @@ import Button from "../ui/Button";
 const Intro = () => {
   return (
     <>
-      <div className="pt-20 pb-10 px-4 max-w-6xl mx-auto">
+      <div className="pb-10 px-4 max-w-6xl mx-auto">
         {/* Hero Section */}
         <section className="text-center py-8">
           <div className="flex justify-center items-center gap-3 mb-4">
@@ -19,7 +19,7 @@ const Intro = () => {
           </p>
         </section>
         <Link to="/blogs" className="flex justify-center">
-          <Button>Explore Blogs</Button>
+          <Button>Explore Blogs →</Button>
         </Link>
 
         {/* Blog Posts */}
