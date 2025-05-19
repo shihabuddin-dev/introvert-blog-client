@@ -11,7 +11,7 @@ const Publish = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newBlog = Object.fromEntries(formData.entries());
-    fetch("http://localhost:3000/blogs", {
+    fetch("https://introvert-blog-server.vercel.app/blogs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

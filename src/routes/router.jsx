@@ -7,6 +7,7 @@ import Blogs from "../pages/blogs/Blogs";
 import Publish from "../pages/publish/Publish";
 import BlogDetails from "../pages/blogs/BlogDetails";
 import Spinner from "../components/ui/Spinner";
+import BlogEdit from "../pages/blogs/BlogEdit";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,15 @@ const router = createBrowserRouter([
         path: "/blog/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/blog/${params.id}`),
+          fetch(`https://introvert-blog-server.vercel.app/blog/${params.id}`),
         Component: BlogDetails,
+      },
+      {
+        path: "/edit/:id",
+        hydrateFallbackElement: <Spinner />,
+        loader: ({ params }) =>
+          fetch(`https://introvert-blog-server.vercel.app/blog/${params.id}`),
+        Component: BlogEdit,
       },
       { path: "/publish", Component: Publish },
 

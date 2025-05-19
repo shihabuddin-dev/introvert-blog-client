@@ -8,7 +8,7 @@ const Blogs = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/blogs?searchParams=${search}`)
+    fetch(`https://introvert-blog-server.vercel.app/blogs?searchParams=${search}`)
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, [search]);
@@ -25,7 +25,7 @@ const Blogs = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/blog/${id}`, { method: "DELETE" })
+        fetch(`https://introvert-blog-server.vercel.app/blog/${id}`, { method: "DELETE" })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {

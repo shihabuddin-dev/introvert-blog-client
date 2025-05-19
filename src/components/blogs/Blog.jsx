@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FiArrowRight, FiEdit, FiTrash2 } from "react-icons/fi";
-const Blog = ({ blog,handleDelete }) => {
+const Blog = ({ blog, handleDelete }) => {
   const { _id, title, description, image } = blog || {};
 
   const truncatedDescription = description
@@ -37,14 +37,19 @@ const Blog = ({ blog,handleDelete }) => {
         <div className="mt-auto pt-4 border-t border-slate-100 flex justify-between items-center">
           <Link
             to={`/blog/${_id}`}
-            className="text-sm font-medium text-teal-600 hover:text-teal-700 flex items-center group"
+            className="font-medium text-teal-600 hover:text-teal-700 flex items-center group"
           >
             Read More
             <FiArrowRight className="ml-1 transform transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
-          <div className="flex gap-2 cursor-pointer">
-            <FiEdit className="w-5 h-5 text-teal-600" />
-            <FiTrash2 onClick={()=>handleDelete(_id)} className="w-5 h-5 text-red-500" />
+          <div className="flex gap-2 cursor-pointer text-sm ">
+            <Link to={`/edit/${_id}`}>
+              <FiEdit className="w-5 h-5 text-teal-600" />
+            </Link>
+            <FiTrash2
+              onClick={() => handleDelete(_id)}
+              className="w-5 h-5 text-red-500"
+            />
           </div>
         </div>
       </div>
