@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
-import { FiArrowRight } from "react-icons/fi";
-const Blog = ({ blog }) => {
+import { FiArrowRight, FiEdit, FiTrash2 } from "react-icons/fi";
+const Blog = ({ blog,handleDelete }) => {
   const { _id, title, description, image } = blog || {};
 
   const truncatedDescription = description
@@ -15,13 +15,13 @@ const Blog = ({ blog }) => {
   }
 
   return (
-    <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col h-full">
+    <div className=" bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col h-full">
       {image && (
         <Link to={`/blog/${_id}`} className="block">
           <img
             src={image}
             alt={title || "Blog post image"}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-102"
+            className="w-full h-48 object-cover transition-transform duration-300 hover:scale-102"
           />
         </Link>
       )}
@@ -34,7 +34,7 @@ const Blog = ({ blog }) => {
           {truncatedDescription}
         </p>
 
-        <div className="mt-auto pt-4 border-t border-slate-100 flex justify-start items-center">
+        <div className="mt-auto pt-4 border-t border-slate-100 flex justify-between items-center">
           <Link
             to={`/blog/${_id}`}
             className="text-sm font-medium text-teal-600 hover:text-teal-700 flex items-center group"
@@ -42,6 +42,10 @@ const Blog = ({ blog }) => {
             Read More
             <FiArrowRight className="ml-1 transform transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
+          <div className="flex gap-2 cursor-pointer">
+            <FiEdit className="w-5 h-5 text-teal-600" />
+            <FiTrash2 onClick={()=>handleDelete(_id)} className="w-5 h-5 text-red-500" />
+          </div>
         </div>
       </div>
     </div>

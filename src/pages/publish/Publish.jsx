@@ -2,6 +2,7 @@ import React from "react";
 import { FaPenNib } from "react-icons/fa";
 import Button from "../../components/ui/Button";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const Publish = () => {
   const navigate = useNavigate();
@@ -20,6 +21,12 @@ const Publish = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("after add", data);
+        Swal.fire({
+          icon: "success",
+          title: "Your Blog has been published",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/blogs");
         form.reset();
       })
